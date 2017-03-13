@@ -1,0 +1,27 @@
+{
+  "name": "gbay",
+  "version": "1.0.0",
+  "description": "ebay like web service for school",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://CodingMouse@bitbucket.org/CodingMouse/gbay.git"
+  },
+  "keywords": [
+    "gbay",
+    "web",
+    "service",
+    "nodejs",
+    "esgi"
+  ],
+  "author": "Caroline Chaudey, Fériel Abachi, Abderahmane Marega",
+  "license": "ISC",
+  "homepage": "https://bitbucket.org/CodingMouse/gbay#readme",
+  "dependencies": {
+    "body-parser": "^1.17.1",
+    "express": "^4.15.2"
+  }
+}
