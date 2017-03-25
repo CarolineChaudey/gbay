@@ -1,6 +1,4 @@
 
-console.log('Juste un hello world histoire de remplir :P');
-
 var express = require('express');
 var server = express();
 
