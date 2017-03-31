@@ -19,7 +19,15 @@ module.exports = (api) => {
       nbCredits: {
         type: integer,
         required: true
+      },
+      role: {
+        type: Schema.Types.ObjectId,
+        ref: 'Role'
       }
+      produitsVendusId: [{
+        type: Schema.Types.ObjectId,
+        ref: 'Product'
+      }]
     });
 
     schema.plugin(timestamps);

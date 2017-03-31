@@ -26,7 +26,21 @@ module.exports = (api) => {
       finEnchere: {
         type: Date,
         required: false
-      }
+      },
+      vendeurId: {
+        type: Schema.Types.ObjectId,
+        ref: 'User',
+        required: true
+      },
+      acheteurId: {
+        type: Schema.Types.ObjectId,
+        ref: 'User',
+        required: false
+      },
+      CategoriesId: [{
+        type: Schema.Types.ObjectId,
+        ref: 'Category'
+      }]
     });
 
     schema.plugin(timestamps);
