@@ -12,11 +12,11 @@ module.exports = (api) => {
         required: true
       },
       prix: {
-        type: float,
+        type: Number,
         required: true // même pour les enchères faut bien un prix de départ
       },
       note: {
-        type: integer,
+        type: Number,
         required: false
       },
       debutEnchere: {

@@ -17,13 +17,13 @@ module.exports = (api) => {
         required: true
       },
       nbCredits: {
-        type: integer,
+        type: Number,
         required: true
       },
       role: {
         type: Schema.Types.ObjectId,
         ref: 'Role'
-      }
+      },
       produitsVendusId: [{
         type: Schema.Types.ObjectId,
         ref: 'Product'
