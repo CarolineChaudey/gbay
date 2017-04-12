@@ -3,6 +3,11 @@ const Sequelize = require('sequelize');
 module.exports = (api) => {
 
   return api.connection.define('Product', {
+    productId: {
+      type: Sequelize.UUIDV4,
+      field: 'productId',
+      primaryKey: true
+    },
     name: {
       type: Sequelize.STRING,
       field: 'name',
@@ -33,28 +38,5 @@ module.exports = (api) => {
       field: 'biddingEnd',
       allowNull: true
     }
-  }, {
-      freezeTableName: true
   });
 };
-/*
-module.exports = (api) => {
-    const schema = new Schema({
-      ....
-      vendeurId: {
-        type: Schema.Types.ObjectId,
-        ref: 'User',
-        required: true
-      },
-      acheteurId: {
-        type: Schema.Types.ObjectId,
-        ref: 'User',
-        required: false
-      },
-      CategoriesId: [{
-        type: Schema.Types.ObjectId,
-        ref: 'Category'
-      }]
-    });
-
-}

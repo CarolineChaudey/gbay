@@ -6,9 +6,7 @@ module.exports = (api) => {
     name: {
         type: Sequelize.STRING,
         field: 'name',
-        allowNull: false
+        primaryKey: true
     }
-  }, {
-      freezeTableName: true
   });
 };

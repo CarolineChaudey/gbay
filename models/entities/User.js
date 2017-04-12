@@ -3,6 +3,11 @@ const Sequelize = require('sequelize');
 module.exports = (api) => {
 
   return api.connection.define('User', {
+    userId: {
+      type: Sequelize.UUIDV4,
+      field: 'userId',
+      primaryKey: true
+    },
     email: {
         type: Sequelize.STRING,
         field: 'email',
@@ -21,24 +26,8 @@ module.exports = (api) => {
     nbCredits: {
       type: Sequelize.FLOAT,
       field: 'nbCredits',
-      allowNull: false
+      allowNull: false,
+      defaultValue: 0
     }
-  }, {
-      freezeTableName: true
   });
 };
-
-/*
-module.exports = (api) => {
-    const schema = new Schema({
-      ...
-      role: {
-        type: Schema.Types.ObjectId,
-        ref: 'Role'
-      },
-      produitsVendusId: [{
-        type: Schema.Types.ObjectId,
-        ref: 'Product'
-      }]
-    });
-}

@@ -1,6 +1,6 @@
 {
   "db": {
-        "url": "mongodb://localhost:27017/gbay"
+        "url": "mysql://localhost:27017/gbay"
   },
   "port": 3000,
   "roles": [
