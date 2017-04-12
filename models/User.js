@@ -1,25 +1,37 @@
-const Schema = require('mongoose').Schema;
-const timestamps = require('mongoose-timestamps');
+const Sequelize = require('sequelize');
 
 module.exports = (api) => {
+
+  return api.connection.define('User', {
+    email: {
+        type: Sequelize.STRING,
+        field: 'email',
+        allowNull: false
+    },
+    password: {
+      type: Sequelize.STRING,
+      field: 'password',
+      allowNull: false
+    },
+    address: {
+      type: Sequelize.STRING,
+      field: 'address',
+      allowNull: false
+    },
+    nbCredits: {
+      type: Sequelize.FLOAT,
+      field: 'nbCredits',
+      allowNull: false
+    }
+  }, {
+      freezeTableName: true
+  });
+};
+
+/*
+module.exports = (api) => {
     const schema = new Schema({
-      email: {
-        type: String,
-        required: true,
-        unique: true
-      },
-      password: {
-        type: String,
-        required: true
-      },
-      addresse: {
-        type: String,
-        required: true
-      },
-      nbCredits: {
-        type: Number,
-        required: true
-      },
+      ...
       role: {
         type: Schema.Types.ObjectId,
         ref: 'Role'
@@ -29,7 +41,4 @@ module.exports = (api) => {
         ref: 'Product'
       }]
     });
-
-    schema.plugin(timestamps);
-    return api.mongoose.model('User', schema);
 }

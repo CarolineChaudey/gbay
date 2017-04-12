@@ -1,18 +1,14 @@
-const Schema = require('mongoose').Schema;
-const timestamps = require('mongoose-timestamps');
+const Sequelize = require('sequelize');
 
 module.exports = (api) => {
-    const schema = new Schema({
-      name: {
-        type: String,
-        required: true
-      },
-      productsId: [{
-        type: Schema.Types.ObjectId,
-        ref: 'Product'
-      }]
-    });
 
-    schema.plugin(timestamps);
-    return api.mongoose.model('Category', schema);
-}
+  return api.connection.define('Category', {
+    name: {
+        type: Sequelize.STRING,
+        field: 'name',
+        allowNull: false
+    }
+  }, {
+      freezeTableName: true
+  });
+};

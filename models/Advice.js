@@ -1,22 +1,14 @@
-const Schema = require('mongoose').Schema;
-const timestamps = require('mongoose-timestamps');
+const Sequelize = require('sequelize');
 
 module.exports = (api) => {
-    const schema = new Schema({
-      contenu: {
-        type: String,
-        required: true
-      },
-      auteurId: {
-        type: Schema.Types.ObjectId,
-        ref: 'User'
-      },
-      concerneId: {
-        type: Schema.Types.ObjectId,
-        ref: 'User'
-      }
-    });
 
-    schema.plugin(timestamps);
-    return api.mongoose.model('Advice', schema);
-}
+  return api.connection.define('Advice', {
+    content: {
+        type: Sequelize.STRING,
+        field: 'content',
+        allowNull: false
+    }
+  }, {
+      freezeTableName: true
+  });
+};

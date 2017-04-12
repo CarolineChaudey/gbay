@@ -1,13 +1,13 @@
-const Schema = require('mongoose').Schema;
-const timestamps = require('mongoose-timestamps');
+const Sequelize = require('sequelize');
 
 module.exports = (api) => {
-    const schema = new Schema({
-        title: {
-            type: String
-        }
+    return api.connection.define('Role', {
+      title: {
+          type: Sequelize.STRING,
+          field: 'title',
+          allowNull: false
+      }
+    }, {
+        freezeTableName: true
     });
-
-    schema.plugin(timestamps);
-    return api.mongoose.model('Role', schema);
 }
