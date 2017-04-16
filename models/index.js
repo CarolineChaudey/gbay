@@ -1,9 +1,22 @@
 const bluebird = require('bluebird');
+var mysql = require('mysql');
 var Sequelize = require('sequelize');
 const path = './entities/';
 
 module.exports = (server) => {
-    server.connection = new Sequelize(server.settings.db.url); // to add in settings
+
+    server.connection = new Sequelize('gbay', 'root', 'azerty', {
+      host: '192.168.0.33',
+      //host: 'localhost',
+      port: 3306,
+      dialect: 'mysql',
+      pool: {
+        max: 5,
+        min: 0,
+        idle: 1000
+      }
+    });
+
 
     server.models = {
         Advice: require(path + 'Advice')(server),
@@ -19,11 +32,9 @@ module.exports = (server) => {
     require('./relations.js')(server);
     console.log('Relations between models set.');
 
-    /*
-    for (var m in server.models) {
-      console.log(m);
-      m.sync();
-    }
-    console.log('Successful model sync.');
-    */
+    server.connection.sync().then(function() {
+      console.log('Server sync successfuly');
+    //}).catch((error) => {
+      //console.log(error);
+    });
 };
