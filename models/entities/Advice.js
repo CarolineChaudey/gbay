@@ -4,7 +4,7 @@ module.exports = (api) => {
 
   return api.connection.define('Advice', {
     adviceId: {
-      type: Sequelize.UUIDV4,
+      type: Sequelize.UUID,
       field: 'adviceId',
       primaryKey: true
     },

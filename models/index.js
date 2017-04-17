@@ -1,15 +1,14 @@
 const bluebird = require('bluebird');
-var mysql = require('mysql');
 var Sequelize = require('sequelize');
 const path = './entities/';
 
 module.exports = (server) => {
 
-    server.connection = new Sequelize('gbay', 'root', 'azerty', {
-      host: '192.168.0.33',
-      //host: 'localhost',
-      port: 3306,
-      dialect: 'mysql',
+    server.connection = new Sequelize('gbay', 'postgres', 'azerty', {
+      //host: '192.168.0.33',
+      host: 'localhost',
+      port: 5432,
+      dialect: 'postgres',
       pool: {
         max: 5,
         min: 0,
