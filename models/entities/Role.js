@@ -7,5 +7,7 @@ module.exports = (api) => {
           field: 'title',
           primaryKey: true
       }
+    }, {
+      tableName: 'Role'
     });
 }

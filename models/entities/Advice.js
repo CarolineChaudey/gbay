@@ -8,10 +8,12 @@ module.exports = (api) => {
       field: 'adviceId',
       primaryKey: true
     },
-    content: {
+    opinion: {
         type: Sequelize.STRING,
-        field: 'content',
+        field: 'opinion',
         allowNull: false
     }
+  }, {
+    tableName: 'Advice'
   });
 };

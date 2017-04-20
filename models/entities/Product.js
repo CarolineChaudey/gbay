@@ -8,9 +8,9 @@ module.exports = (api) => {
       field: 'productId',
       primaryKey: true
     },
-    name: {
+    title: {
       type: Sequelize.STRING,
-      field: 'name',
+      field: 'title',
       allowNull: false
     },
     description: {
@@ -38,5 +38,7 @@ module.exports = (api) => {
       field: 'biddingEnd',
       allowNull: true
     }
+  }, {
+    tableName: 'Product'
   });
 };

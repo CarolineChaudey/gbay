@@ -3,10 +3,12 @@ const Sequelize = require('sequelize');
 module.exports = (api) => {
 
   return api.connection.define('Category', {
-    name: {
+    title: {
         type: Sequelize.STRING,
-        field: 'name',
+        field: 'title',
         primaryKey: true
     }
+  }, {
+    tableName: 'Category'
   });
 };

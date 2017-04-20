@@ -13,9 +13,9 @@ module.exports = (api) => {
         field: 'email',
         allowNull: false
     },
-    password: {
+    pswd: {
       type: Sequelize.STRING,
-      field: 'password',
+      field: 'pswd',
       allowNull: false
     },
     address: {
@@ -29,5 +29,7 @@ module.exports = (api) => {
       allowNull: false,
       defaultValue: 0
     }
+  }, {
+    tableName: 'User'
   });
 };
