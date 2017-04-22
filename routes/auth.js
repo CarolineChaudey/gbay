@@ -4,7 +4,10 @@ const router = require('express').Router();
 module.exports = (api) => {
 
   // créer un compte
-  router.post('/register');
+  router.post('/register',
+              api.middlewares.bodyParser.json(),
+              api.middlewares.ensureUserFields,
+              api.actions.auth.createUser);
 
   // se connecter (et obtenir un token)
   router.get('/login');

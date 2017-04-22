@@ -6,7 +6,8 @@ module.exports = (api) => {
     userId: {
       type: Sequelize.UUID,
       field: 'userId',
-      primaryKey: true
+      primaryKey: true,
+      defaultValue: Sequelize.UUIDV4
     },
     email: {
         type: Sequelize.STRING,
