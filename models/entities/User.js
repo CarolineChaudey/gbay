@@ -1,4 +1,5 @@
 const Sequelize = require('sequelize');
+var Tokenify = require('sequelize-tokenify');
 
 module.exports = (api) => {
 
@@ -29,8 +30,18 @@ module.exports = (api) => {
       field: 'nbCredits',
       allowNull: false,
       defaultValue: 0
+    },
+    token: {
+      type: Sequelize.STRING,
+      unique: true
     }
-  }, {
+  },
+
+  Tokenify.tokenify(User, {
+      field: 'token'
+  });
+
+  {
     tableName: 'User'
   });
 };
