@@ -8,6 +8,7 @@ module.exports = (api) => {
 
     let querySettings = {};
 
+    // test : http://localhost:3000/products/available
     querySettings.where = {
       $or: [
         { // enchere non achevee
@@ -22,28 +23,31 @@ module.exports = (api) => {
       ]
     };
 
+    console.log('Debug : params  = ', req.query);
     // les relations avec les autres tables
-    if (req.params.categories) {
+    querySettings.include = [];
+    if (req.query.categories) {
       querySettings.include.push({
         model: Category,
         where: {
           title: {
-            $in: req.params.categories
+            $in: req.query.categories.split(',') // pour convertir en liste js
         }}
       });
     }
-    if (req.params.sellers) {
+    if (req.query.sellers) {
       querySettings.include.push({
         model: User,
         where: {
           userId: {
-            $in: req.params.sellers
+            $in: req.query.sellers.split(',')
         }}
       });
     }
 
     // pour l'ordre par prix (par date par défaut)
-    if (req.params.price) {
+    // test : http://localhost:3000/products/available?price=asc
+    if (req.query.price == 'asc') {
       querySettings.order = [
         ['price']
       ];
@@ -54,11 +58,12 @@ module.exports = (api) => {
     }
 
     // pour la pagination
-    if (req.params.limit) {
-      querySettings.limit = req.params.limit;
+    // test : http://localhost:3000/products/available?limit=1&page=2
+    if (req.query.limit) {
+      querySettings.limit = req.query.limit;
     }
-    if (req.params.offset) {
-      querySettings.offset = req.params.offset;
+    if (req.query.page) {
+      querySettings.offset = (req.query.page - 1) * req.query.limit; // (numero de page - 1) * elements par page = elements sautés
     }
 
     Product.findAll(querySettings)
