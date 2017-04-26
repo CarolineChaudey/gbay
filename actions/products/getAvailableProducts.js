@@ -38,6 +38,7 @@ module.exports = (api) => {
     if (req.query.sellers) {
       querySettings.include.push({
         model: User,
+        as: 'seller',
         where: {
           userId: {
             $in: req.query.sellers.split(',')
