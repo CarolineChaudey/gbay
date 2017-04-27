@@ -3,7 +3,7 @@ var Tokenify = require('sequelize-tokenify');
 
 module.exports = (api) => {
 
-  return api.connection.define('User', {
+  let User = api.connection.define('User', {
     userId: {
       type: Sequelize.UUID,
       field: 'userId',
@@ -36,17 +36,18 @@ module.exports = (api) => {
       allowNull: false,
       defaultValue: 0
     },
-    token: {
+    userToken: {
       type: Sequelize.STRING,
       unique: true
     }
-  },
-
-  Tokenify.tokenify(User, {
-      field: 'token'
-  });
-
-  {
+  }, {
     tableName: 'User'
   });
+
+  Tokenify.tokenify(User, {
+      field: 'userToken'
+  });
+
+  return User;
+
 };
