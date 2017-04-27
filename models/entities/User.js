@@ -10,6 +10,11 @@ module.exports = (api) => {
       primaryKey: true,
       defaultValue: Sequelize.UUIDV4
     },
+    sellerFlag: {
+      type: Sequelize.BOOLEAN,
+      allowNull: false,
+      defaultValue: false
+    },
     email: {
         type: Sequelize.STRING,
         field: 'email',
