@@ -17,7 +17,7 @@
     "nodejs",
     "esgi"
   ],
-  "author": "Caroline Chaudey, Fériel Abachi, Abderahmane Marega",
+  "author": "Caroline Chaudey, Abderahmane Marega",
   "license": "ISC",
   "homepage": "https://bitbucket.org/CodingMouse/gbay#readme",
   "dependencies": {
@@ -27,6 +27,7 @@
     "jsonwebtoken": "^7.3.0",
     "pg": "^6.1.5",
     "sequelize": "^3.30.4",
+    "sequelize-tokenify": "^0.1.5",
     "sha1": "^1.1.1"
   }
 }
