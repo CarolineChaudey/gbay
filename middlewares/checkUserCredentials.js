@@ -17,10 +17,11 @@ module.exports = (api) => {
     };
 
     User.findOne(queryParams).then(function(user) {
-      if (user) {
-        return res.status(200).send(user);
+      if (!user) {
+        return res.status(400).send('incorrect.email.or.password');
       }
-      return res.status(400).send('incorrect.email.or.password');
+      req.body.user = user.dataValues;
+      next();
     });
   };
 };

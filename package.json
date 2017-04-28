@@ -24,10 +24,9 @@
     "bluebird": "^3.5.0",
     "body-parser": "^1.17.1",
     "express": "^4.15.2",
-    "jsonwebtoken": "^7.3.0",
+    "jsonwebtoken": "^7.4.0",
     "pg": "^6.1.5",
     "sequelize": "^3.30.4",
-    "sequelize-tokenify": "^0.1.5",
     "sha1": "^1.1.1"
   }
 }

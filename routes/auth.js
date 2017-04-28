@@ -12,8 +12,8 @@ module.exports = (api) => {
   // se connecter (et obtenir un token)
   router.post('/login',
               api.middlewares.bodyParser.json(),
-              api.middlewares.checkUserCredentials);//,
-              //api.actions.auth.loginUser);
+              api.middlewares.checkUserCredentials,
+              api.actions.auth.loginUser);
 
   // éditer ses infos
   router.put('/:id');
