@@ -28,7 +28,7 @@ module.exports = (api) => {
                      return res.status(400).send(err);
                    }
                    req.user = user.dataValues;
-                   console.log(req.user);
+                   //console.log(req.user);
                    next();
                  });
     });
