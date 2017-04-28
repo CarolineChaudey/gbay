@@ -7,8 +7,8 @@ module.exports = (api) => {
   return function create(req, res, next) {
     let user = req.body.user;
     jwt.sign({ userId: req.body.user.userId },
-              'shhhhh',
-              {'expiresIn': 60},
+              api.settings.salt,
+              {'expiresIn': api.settings.token_duration},
               function(err, token) {
                 if (err) {
                   return res.status(500).send('connection.failed');
@@ -16,7 +16,7 @@ module.exports = (api) => {
                 User.update({userToken: token},
                             {where: {userId: req.body.user.userId}}
                 ).then(function(result) {
-                  if (result = [1]) {
+                  if (result[0] == 1) {
                     return res.status(200).send({token: token});
                   }
                 });

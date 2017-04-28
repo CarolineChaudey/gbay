@@ -6,5 +6,7 @@
   "roles": [
     "User",
     "Admin"
-  ]
+  ],
+  "token_duration": 60,
+  "salt": "onclebens"
 }
