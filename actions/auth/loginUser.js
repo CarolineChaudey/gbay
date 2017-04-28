@@ -1,4 +1,3 @@
-const Tokenify = require('sequelize-tokenify');
 var jwt = require('jsonwebtoken');
 
 module.exports = (api) => {

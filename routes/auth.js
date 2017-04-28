@@ -19,7 +19,11 @@ module.exports = (api) => {
   router.put('/:id');
 
   // créditer son compte
-  router.post('/addCredits/:nbCredits');
+  router.post('/addCredits/:passedUserId',
+              api.middlewares.bodyParser.json(),
+              api.middlewares.checkUserToken,
+              api.middlewares.checkUserOrAdminRights,
+              api.actions.auth.creditAccount);
 
   // supprimer un compte (soit le sien, soit l'admin supprime un compte)
   router.delete('/:id');
