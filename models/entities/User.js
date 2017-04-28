@@ -33,14 +33,11 @@ module.exports = (api) => {
     },
     userToken: {
       type: Sequelize.STRING,
-      unique: true
+      unique: true,
+      defaultValue: null
     }
   }, {
     tableName: 'User'
-  });
-
-  Tokenify.tokenify(User, {
-      field: 'userToken'
   });
 
   return User;

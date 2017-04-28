@@ -1,6 +1,7 @@
 
 module.exports = (api) => {
     return {
-      createUser: require('./createUser')(api)
+      createUser: require('./createUser')(api),
+      loginUser: require('./loginUser')(api)
     };
 };
