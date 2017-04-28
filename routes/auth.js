@@ -16,7 +16,11 @@ module.exports = (api) => {
               api.actions.auth.loginUser);
 
   // éditer ses infos
-  router.put('/:id');
+  router.put('/:id',
+             api.middlewares.bodyParser.json(),
+             api.middlewares.checkUserToken,
+             api.middlewares.checkUserRights,
+             api.actions.auth.editUser);
 
   // créditer son compte
   router.post('/addCredits/:passedUserId',
