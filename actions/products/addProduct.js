@@ -19,8 +19,21 @@ module.exports = (api) => {
       productFields.biddingStart = req.body.biddingStart;
       productFields.biddingEnd = req.body.biddingEnd;
     }
+    if (req.body.categories) {
+      let categoriesList = [];
+      for(let i=0; i < req.body.categories.length; i++) {
+        categoriesList.push(
+          {title: req.body.categories[i]}
+        );
+      }
+      productFields.categories = categoriesList;
+    }
 
-    Product.create(productFields)
+    console.log(productFields);
+    Product.create(productFields, {include: {
+      model: Category,
+      as: 'categories'
+    }})
     .then((createdProduct) => {
       return res.status(201).send(createdProduct);
     });

@@ -10,6 +10,6 @@ module.exports = (server) => {
   server.models.Product.belongsTo(server.models.User, {as: 'buyer'});
   //server.models.User.hasMany(server.models.Product, {as: 'boughtProducts'});
 
-  server.models.Product.belongsToMany(server.models.Category, {through: 'CategoryProduct'});
+  server.models.Product.belongsToMany(server.models.Category, {through: 'CategoryProduct', as: 'categories'});
 
 };
