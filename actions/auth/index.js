@@ -4,6 +4,7 @@ module.exports = (api) => {
       createUser: require('./createUser')(api),
       loginUser: require('./loginUser')(api),
       creditAccount: require('./creditAccount')(api),
-      editUser: require('./editUser')(api)
+      editUser: require('./editUser')(api),
+      deleteAccount: require('./deleteAccount')(api)
     };
 };
