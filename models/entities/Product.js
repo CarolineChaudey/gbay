@@ -6,7 +6,8 @@ module.exports = (api) => {
     productId: {
       type: Sequelize.UUID,
       field: 'productId',
-      primaryKey: true
+      primaryKey: true,
+      defaultValue: Sequelize.UUIDV4
     },
     title: {
       type: Sequelize.STRING,
@@ -39,6 +40,7 @@ module.exports = (api) => {
       allowNull: true
     }
   }, {
-    tableName: 'Product'
+    tableName: 'Product',
+    paranoid: true
   });
 };

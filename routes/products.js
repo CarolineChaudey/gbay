@@ -9,7 +9,11 @@ module.exports = (api) => {
               api.actions.products.getAvailableProducts);
 
   // ajouter un produit
-  router.post('/');
+  router.post('/',
+              api.middlewares.bodyParser.json(),
+              api.middlewares.checkUserToken,
+              api.middlewares.ensureProductFields,
+              api.actions.products.addProduct);
 
   // éditer un produit
   router.put('/:productId');

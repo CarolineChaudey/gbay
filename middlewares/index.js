@@ -6,6 +6,7 @@ module.exports = (api) => {
         checkUserCredentials: require('./checkUserCredentials.js')(api),
         checkUserToken: require('./checkUserToken.js')(api),
         checkUserOrAdminRights: require('./checkUserOrAdminRights.js')(api),
-        checkUserRights: require('./checkUserRights.js')(api)
+        checkUserRights: require('./checkUserRights.js')(api),
+        ensureProductFields: require('./ensureProductFields')
     };
 };
