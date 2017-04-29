@@ -37,7 +37,8 @@ module.exports = (api) => {
       defaultValue: null
     }
   }, {
-    tableName: 'User'
+    tableName: 'User',
+    paranoid: true
   });
 
   return User;
