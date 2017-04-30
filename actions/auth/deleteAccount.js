@@ -3,7 +3,6 @@ module.exports = (api) => {
   const User = api.models.User;
 
   return function editUser(req, res, next) {
-    console.log(req.user);
 
     User.destroy({
       where: {

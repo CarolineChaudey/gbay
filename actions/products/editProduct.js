@@ -12,13 +12,10 @@ module.exports = (api) => {
       sellerUserId: req.user.userId
     };
 
-    if (req.body.biddingStart && (null == req.body.biddingEnd)) {
-      return res.status(400).send('bidding.end.missing');
+    if (req.body.biddingStart) {
+      return res.status(400).send('too.late');
     }
-    if (req.body.biddingStart && req.body.biddingEnd) {
-      productFields.biddingStart = req.body.biddingStart;
-      productFields.biddingEnd = req.body.biddingEnd;
-    }
+
     if (req.body.categories) {
       let categoriesList = [];
       for(let i=0; i < req.body.categories.length; i++) {
