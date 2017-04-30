@@ -12,6 +12,7 @@ module.exports = (api) => {
     },
     sellerFlag: {
       type: Sequelize.BOOLEAN,
+      field: 'sellerFlag',
       allowNull: false,
       defaultValue: false
     },
